@@ -3,8 +3,8 @@
 The DOMArch website context, no sessions, no cookies, no forms... only pages crawlable by search engines.
 
 ## <a name="summary">Summary</a>
+* [Documentation](./doc#title)
 * [Installation](#installation)
-* [Components](#components)
 * [License](#license)
 
 ## <a name="installation">Installation :</a>
@@ -21,13 +21,6 @@ The DOMArch website context, no sessions, no cookies, no forms... only pages cra
   * `composer install`
   * `php cli/setup.php`
 * Go to http://domain.tld
-
-## <a name="components">Components :</a>
-
-* [Assemblies](./doc/assemblies.md)
-* [Entities and Repositories](./doc/entities-and-repositories.md)
-* [Lib](./doc/lib.md)
-* [Modules](./doc/modules.md)
 
 ## <a name="license">License :</a>
 This project is MIT licensed.
