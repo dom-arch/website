@@ -29,6 +29,6 @@
     "php": ">=7.0.1",
     "dom-arch/dom-arch": "dev-master",
     "dom-arch/indoctrinated": "dev-master",
-    "dom-arch/php-dom": "dev-master"
+    "dom-arch/php-dom": ">=0.9"
   }
 }
