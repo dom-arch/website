@@ -1,4 +1,4 @@
-# <a name="title">DOMArch website lib [BETA]</a>
+# <a name="title">DOMArch website `Lib` [BETA]</a>
 
 The `Lib` is the namespace which contains, principally the external libraries extensions
 
