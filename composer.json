@@ -6,6 +6,10 @@
     {
       "type": "vcs",
       "url": "https://github.com/dom-arch/dom-arch"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/dom-arch/indoctrinated"
     }
   ],
   "autoload": {
@@ -18,6 +22,8 @@
     }
   },
   "require": {
-    "php": ">=7.0.1"
+    "php": ">=7.0.1",
+    "dom-arch/dom-arch": "dev-master",
+    "dom-arch/indoctrinated": "dev-master"
   }
 }
