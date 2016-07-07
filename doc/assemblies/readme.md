@@ -3,7 +3,7 @@
 An assembly is a component used to manipulate the DOM nodes
 
 Basically, there is 3 major assembly types
-* [Layouts](#layouts) (the different site layouts, invoked by the `Lib\Request\Incoming` and passed as first argem)
+* [Layouts](#layouts) (the different site layouts, invoked by the `Lib\Request\Incoming`)
 * [Components](#components)
 * [Sections](#sections) (the different site sections)
 
