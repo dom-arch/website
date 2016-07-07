@@ -40,8 +40,6 @@ $section = $section_assembly->getNode();
 
 A `Assembly\HTML\Section::assemble($page)` creates & appends a section element to the defined/default parent element and defines the dynamic nodes
 
-It also have a `$assembly->translate()` called to translate the section contents, once all is defined
-
 ## <a name="playing-with-the-elements">Playing with the elements :</a>
 
 Here, you can only find the DOMArch extras doc on nodes, for a detailled documentation, please check the [PHPDOM tutorials](https://github.com/dom-arch/php-dom/tutorials#title)
@@ -81,6 +79,16 @@ $a = $document->create([
 ```
 
 ## <a name="translations">Translations :</a>
+
+### <a name="how-it-works">How it works :</a>
+
+When you ask the system to translate something, it gets the current value (element or attribute) and consider it as a translation format.
+
+When the document is printed, the system retrieve only all needed translations, on the fly, by a single db request and makes the required changes on the document.
+
+If the format is not found in the db, the system adds it automatically, and returns the format as default translation, until your really translate the db record, and mark it as `isTranslated = false`
+
+Additionally, it tags the element (or it's parent) with a class `untranslated`, useful to highlight it in your view
 
 ### <a name="translate-a-specific-node">Translate a specific node :</a>
 
