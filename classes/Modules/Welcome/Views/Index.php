@@ -17,12 +17,6 @@ class Index
     public function get()
     {
         $section = Section::assemble($this);
-
-        $document = $this->getDocument();
-
-        $ul = $document->create([
-            'tag' => 'ul'
-        ]);
         
         $section->translate();
     }
