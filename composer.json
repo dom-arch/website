@@ -1,0 +1,23 @@
+{
+  "name": "dom-arch/website",
+  "description": "The DOMArch website context",
+  "license": "MIT",
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/dom-arch/dom-arch"
+    }
+  ],
+  "autoload": {
+    "classmap": ["classes/Entities"],
+    "psr-4": {
+      "Assemblies\\": "classes/Assemblies",
+      "Lib\\": "classes/Lib",
+      "Modules\\": "classes/Modules",
+      "Repositories\\": "classes/Repositories"
+    }
+  },
+  "require": {
+    "php": ">=7.0.1"
+  }
+}
