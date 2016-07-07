@@ -3,7 +3,7 @@ CREATE TABLE `Routes` (
   `createdAt` datetime NOT NULL,
   `updatedAt` datetime DEFAULT NULL,
   `archivedAt` datetime DEFAULT NULL,
-  `format` text NOT NULL UNIQUE,
+  `format` text NOT NULL,
   `isTranslated` tinyint(1) DEFAULT '0',
   `en` text NOT NULL,
   `fr` text NOT NULL,
