@@ -9,18 +9,16 @@ The DOMArch website context, no sessions, no cookies, no forms... only pages cra
 
 ## <a name="installation">Installation :</a>
 
-<strong>Please follow the [DOMArch requirements](https://github.com/dom-arch/dom-arch#requirements)</strong>
-
 <strong>If you change the following example names, please adapt your `config.json`</strong>
 
-* Ensure PDO is enabled
+* Firstly, install [DOMArch](https://github.com/dom-arch/dom-arch)
 * Clone this repository into your `entrypoints` directory
    `git clone https://github.com/dom-arch/website.git website`
 * Add a host, like `domain.tld`, to your `hosts` file
 * Create a database like `domain-tld-website`
 * Go to the `sql` directory and execute each table script
 * In a shell, go to your `website` directory and exectute the following commands :
-  * `composer install -o`
+  * `composer install`
   * `php cli/setup.php`
 * Go to http://domain.tld
 
