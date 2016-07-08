@@ -55,13 +55,15 @@ class Page
         string $fragment = ''
     )
     {
-        ksort($params);
         $url = $this->_url->rewrite($params, $fragment);
-
         $url->setClassName($url->getClassName());
         $url->setMethod($url->getMethod());
         $url->setModuleName($url->getModuleName());
         $url->setLocale($url->getLocale());
+        $url_params = $url->getParams()->toArray();
+        ksort($url_params);
+
+        $url->getParams()->clear()->fill($url_params);
 
         return $url;
     }
