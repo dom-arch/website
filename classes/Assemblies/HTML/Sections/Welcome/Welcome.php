@@ -16,23 +16,11 @@ class Welcome
         $section = Section::assemble($page, 'welcome')->getNode();
 
         $a = $section->select('a');
+
         $a->attrset->href = $document->url([
-            'moduleName' => 'FileReader',
+            'moduleName' => 'Login',
             'className' => 'Index'
         ]);
-
-        $login = $document->create([
-            'tag' => 'a',
-            'data' => 'login-anchor',
-            'attributes' => [
-                'href' => $document->appUrl([
-                    'moduleName' => 'Login',
-                    'className' => 'Index'
-                ])
-            ]
-        ]);
-
-        $section->append($login);
 
         return new static($section);
     }
