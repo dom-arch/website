@@ -57,10 +57,10 @@ class Page
     {
         $url = $this->_url->rewrite($params, $fragment);
 
-        $url->setModuleName($url->getModuleName());
         $url->setClassName($url->getClassName());
-        $url->setLocale($url->getLocale());
         $url->setMethod($url->getMethod());
+        $url->setModuleName($url->getModuleName());
+        $url->setLocale($url->getLocale());
 
         return $url;
     }
