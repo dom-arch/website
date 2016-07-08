@@ -11,9 +11,6 @@ class Nav
     const
         LINKS = [
             [
-                'moduleName' => 'Welcome'
-            ],
-            [
                 'moduleName' => 'Contact'
             ]
         ];
@@ -34,20 +31,21 @@ class Nav
 
         $assembly = new static($nav);
 
-        $assembly->appendLinks($url);
-        $assembly->appendLanguageLinks($url);
+        $assembly->appendLinks($page);
+        $assembly->appendLanguageLinks($page);
 
         return $assembly;
     }
 
     public function appendLinks(
-        Url $url
+        HTMLPage $page
     )
     {
+        $document = $page->getDocument();
         $ol = $this->getNode()->select('ol');
 
         foreach (self::LINKS as $url_params) {
-            $anchor_url = $url->rewrite($url_params);
+            $anchor_url = $document->url($url_params);
 
             $text = implode('-', [
                 $anchor_url->getModuleName(),
@@ -72,9 +70,10 @@ class Nav
     }
 
     public function appendLanguageLinks(
-        Url $url
+        HTMLPage $page
     )
     {
+        $url = $page->getUrl();
         $ol = $this->getNode()->select('#languages');
         $alternates = $url->getAlternates();
         $format = $url->getFormat();
