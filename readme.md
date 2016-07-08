@@ -12,6 +12,7 @@ The DOMArch website context, no sessions, no cookies, no forms... only pages cra
 <strong>If you change the following example names, please adapt your `config.json`</strong>
 
 * Firstly, install [DOMArch](https://github.com/dom-arch/dom-arch)
+* Ensure PDO is enabled
 * Clone this repository into your `entrypoints` directory
    `git clone https://github.com/dom-arch/website.git website`
 * Add a host, like `domain.tld`, to your `hosts` file
