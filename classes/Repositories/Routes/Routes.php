@@ -35,13 +35,29 @@ class Routes extends Repository
     )
     {
         $url_string = (string) $url;
-        $params = [];
-        $counter = 0;
 
         $locales = Config::global()
             ->get('common')
             ->get('locales')
             ->toArray();
+
+        list($format, $params) = static::_getFormat($url_string);
+
+        $route = static::_getRoute($format, $locales);
+
+        if (!$route) {
+            return;
+        }
+
+        return static::_getUrl($route, $url_string, $method, $locales, $params);
+    }
+
+    protected static function _getFormat(
+        string $url
+    )
+    {
+        $params = [];
+        $counter = 0;
 
         $callback = function($matches)
         use (&$params, &$counter) {
@@ -51,17 +67,11 @@ class Routes extends Repository
             return '%' . $counter . '$s';
         };
 
-        $translation = preg_replace_callback(
-            '/(-\()([^)]+)(\)-?)/', $callback, $url_string
+        $format = preg_replace_callback(
+            '/(-\()([^)]+)(\)-?)/', $callback, $url
         );
 
-        $route = static::_getRoute($translation, $locales);
-
-        if (!$route) {
-            return;
-        }
-
-        return static::_getUrl($route, $url_string, $method, $locales, $params);
+        return [$format, $params];
     }
 
     protected static function _getRoute(
@@ -117,5 +127,26 @@ class Routes extends Repository
         }
 
         return $resolved_url;
+    }
+
+    public static function archive(
+        Url $url,
+        string $method = 'get'
+    )
+    {
+        $url_string = Url::parse((string) $url)
+            ->setMethod($method)
+            ->setLocale(null);
+
+        list($format) = static::_getFormat((string) $url_string);
+
+        $route = Entity::getEntityRepository()
+            ->selectBy([
+                'format' => $format
+            ]);
+
+        if ($route) {
+            $route->archive();
+        }
     }
 }
