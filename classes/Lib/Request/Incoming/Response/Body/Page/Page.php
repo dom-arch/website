@@ -55,6 +55,7 @@ class Page
         string $fragment = ''
     )
     {
+        ksort($params);
         $url = $this->_url->rewrite($params, $fragment);
 
         $url->setClassName($url->getClassName());
