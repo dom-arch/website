@@ -101,7 +101,7 @@ class Page
         ) use ($element, $name) {
             if (!$is_translated) {
                 $element->classList->add('untranslated');
-                $element->dataset->translationId = $id;
+                $element->dataset->routeId = $id;
             }
 
             $url = Url::parse($translation);

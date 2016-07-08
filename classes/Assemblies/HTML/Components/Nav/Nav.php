@@ -32,7 +32,7 @@ class Nav
 
         $assembly->appendLinks($page);
         $assembly->appendLanguageLinks($page);
-        $assembly->_translate($nav);
+        $assembly->translate($nav);
 
         return $assembly;
     }
