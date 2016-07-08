@@ -9,6 +9,8 @@ The DOMArch website context, no sessions, no cookies, no forms... only pages cra
 
 ## <a name="installation">Installation :</a>
 
+<strong>Please follow the [DOMArch requirements](https://github.com/dom-arch/dom-arch#requirements)</strong>
+
 <strong>If you change the following example names, please adapt your `config.json`</strong>
 
 * Ensure PDO is enabled
