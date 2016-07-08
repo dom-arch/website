@@ -17,7 +17,7 @@ class Welcome
 
         $a = $section->select('a');
 
-        $a->attrset->href = $document->url([
+        $a->attrset->href = $document->appUrl([
             'moduleName' => 'Login',
             'className' => 'Index'
         ]);
