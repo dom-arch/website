@@ -70,16 +70,8 @@ class Page
         string $fragment = ''
     )
     {
-        $url = $this->_url
-            ->rewrite($params, $fragment)
+        return $this->url($params, $fragment)
             ->setSubDomain('app');
-
-        $url->setModuleName($url->getModuleName());
-        $url->setClassName($url->getClassName());
-        $url->setLocale($url->getLocale());
-        $url->setMethod($url->getMethod());
-
-        return $url;
     }
 
     public function translateUrl(
