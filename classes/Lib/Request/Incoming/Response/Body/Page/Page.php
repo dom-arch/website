@@ -75,8 +75,7 @@ class Page
     )
     {
         $translator = $this->getUrlTranslator();
-        $Url = get_class(Request\Incoming::current()->getUrl());
-        $url = $Url::parse($translatable->nodeValue);
+        $url = Url::parse($translatable->nodeValue);
         $name = $translatable->name;
         $element = $translatable->ownerElement;
         $method = 'get';
@@ -97,11 +96,13 @@ class Page
                 $element->dataset->translationId = $id;
             }
 
-            $key = Config::global()
-                ->get('common')
-                ->get('encryptionKey');
+            $url = Url::parse($translation);
+            $config = Config::global()->get('common');
+            $host = $config->get('urlPrefixes')->get('app');
 
-            $url = Url::parse($translation)->encrypt($key);
+            if (strpos($translation, $host) === 0) {
+                $url = $url->encrypt($config->get('encryptionKey'));
+            }
 
             $element->setAttribute($name, $url);
         });
