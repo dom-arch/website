@@ -22,11 +22,9 @@ class Nav
         $document = $page->getDocument();
         $fetcher = $page->getFetcher();
 
-        $fragment = $fetcher->component()->nav()->fetch();
-        $header = $document->select('header');
-        $nav = $fragment->select('nav');
+        $nav = $fetcher->component()->nav()->fetch();
 
-        $header->append($nav);
+        $document->select('header')->append($nav);
 
         $assembly = new static($nav);
 

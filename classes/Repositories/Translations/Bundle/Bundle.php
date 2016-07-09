@@ -33,6 +33,7 @@ class Bundle
             }
 
             $str = sprintf($translation->toArray()[$locale], ...$params);
+
             $id = $translation->getId();
             $is_translated = $translation->getIsTranslated();
 
