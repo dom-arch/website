@@ -23,6 +23,6 @@ The DOMArch website context, no sessions, no cookies, no forms... only pages cra
 * Go to http://domain.tld
 
 ## <a name="license">License :</a>
-This project is MIT licensed.
+[This project is MIT licensed](https://github.com/dom-arch/service/blob/master/LICENSE)
 
 Copyright © 2015 - 2016 Lcf.vs
