@@ -1,7 +1,6 @@
 <?php
 namespace Lib\Request;
 
-use Exception;
 use Lib\Config;
 use Lib\Request\Incoming\Response\Body\Page;
 use Lib\Url;
