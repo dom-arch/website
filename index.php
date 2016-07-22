@@ -13,8 +13,8 @@ require_once 'vendor/autoload.php';
 
 chdir(__DIR__);
 ignore_user_abort(true);
-ini_set('display_errors', 'off');
-ini_set('display_startup_errors', 'off');
+//ini_set('display_errors', 'off');
+//ini_set('display_startup_errors', 'off');
 error_reporting(E_ALL);
 
 Lib\Config::parse('config.json', true);
