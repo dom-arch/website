@@ -1,6 +1,7 @@
 <?php
 namespace Repositories\Routes;
 
+use Lib\Config;
 use Lib\Translator;
 use Lib\Url;
 use Routes;
@@ -29,7 +30,7 @@ class Bundle
     {
         $bundle = $this;
         $counter = 0;
-        
+
         $params = $url->getParams()
             ->init('className', $url->getClassName())
             ->init('method', $url->getMethod())
@@ -60,15 +61,23 @@ class Bundle
             if (array_key_exists($format, $routes)) {
                 $route = $routes[$format];
             } else {
+                var_dump($format);
                 $route = $bundle->_onDefault($format);
             }
 
             $translation = $route->toArray()[$locale];
             $translation = sprintf($translation, ...$sprintf_params);
             $id = $route->getId();
-            $is_translated = $route->getIsTranslated();
 
-            $listener($translation, $id, $is_translated);
+            $key = Config::global()
+                ->get('common')
+                ->get('encryptionKey');
+
+            $encrypted = Url::parse($translation)
+                ->setLocale($locale)
+                ->encrypt($key);
+
+            $listener($encrypted, $id, true);
         });
 
         return $this->_search($format);
@@ -88,7 +97,11 @@ class Bundle
 
         $entity_class = $this->_entityClass;
 
-        return $entity_class::fromArray($fields)
+        $entity = $entity_class::fromArray($fields)
             ->save();
+
+        $this->_results[$format] = $entity;
+
+        return $entity;
     }
 }
